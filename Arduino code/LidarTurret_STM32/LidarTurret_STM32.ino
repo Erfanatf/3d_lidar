@@ -8,7 +8,7 @@
 // #define TFMINI_BAUDRATE 115200 // bauds
 // #define TFMINI_DATARATE 10.0f // ms
 
-// SHARP
+// SHARP / VL53L0X
 #define xshut PB4
 #define SHARP_BAUDRATE 115200 // bauds
 #define SHARP_DATARATE 10.0f // ms
@@ -16,7 +16,7 @@ int distance = 0;
 int strength = 0;
 float temp = 0;
 
-// Servos
+// Servos / sg90
 Servo servo_g, servo_d;
 #define SERVO_G_PIN PB0
 #define SERVO_D_PIN PB1
@@ -26,7 +26,7 @@ Servo servo_g, servo_d;
 int servo_angle = SERVO_POS_MIN; // current servo pos
 
 // Stepper
-#define EN PB14
+#define EN PB14 
 #define DIR_PIN PB15 
 #define STEP_PIN PA8
 #define PULSE_PER_REV 300 // PPR_motor * Gear_reduction * Microstepping = 200*3/2*16
