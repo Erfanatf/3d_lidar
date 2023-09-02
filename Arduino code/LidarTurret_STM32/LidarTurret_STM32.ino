@@ -11,7 +11,7 @@
 // SHARP / VL53L0X
 #define xshut PB4
 #define SHARP_BAUDRATE 115200 // bauds
-#define SHARP_DATARATE 10.0f // ms
+#define SHARP_DATARATE 33.0f // ms
 int distance = 0;
 int strength = 0;
 float temp = 0;
@@ -29,8 +29,8 @@ int servo_angle = SERVO_POS_MIN; // current servo pos
 #define EN PB14 
 #define DIR_PIN PB15 
 #define STEP_PIN PA8
-#define PULSE_PER_REV 300 // PPR_motor * Gear_reduction * Microstepping = 200*3/2*16
-#define TIME_PER_REV 250.0f // ms
+#define PULSE_PER_REV 2400 // PPR_motor * Gear_reduction * Microstepping = 200*3/2*16
+#define TIME_PER_REV 5000.0f // ms
 const int TIME_PER_PULSE = (TIME_PER_REV * 1000.0f)/ PULSE_PER_REV; // us
 const int PULSE_PER_DATAPOINT = (SHARP_DATARATE * 1000.0f) / TIME_PER_PULSE;
 
@@ -111,7 +111,7 @@ void loop() {
 
   if(pulses == PULSE_PER_REV) {
   pulses = 0;
-  servo_angle += servo_dir;
+  servo_angle += 3 * servo_dir;
   if(servo_angle > SERVO_POS_MAX || servo_angle < SERVO_POS_MIN){
     servo_dir = -servo_dir;
   }
